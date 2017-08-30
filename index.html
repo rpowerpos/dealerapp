@@ -14,12 +14,7 @@
 
        function onDeviceReady()
        {
-           var myLink = document.getElementById('myLink');
-
-           myLink.addEventListener("click", function()
-           {
-               cordova.InAppBrowser.open('https://support.rpowerpos.com', '_self', 'location=no');
-           })
+           cordova.InAppBrowser.open('https://support.rpowerpos.com', '_self', 'location=no');
        }
    </script>
 </body>
