@@ -8,9 +8,12 @@
 <body>
 
    <script>
+       document.addEventListener("deviceready", onDeviceReady, false);
 
+       function onDeviceReady()
+       {
            cordova.InAppBrowser.open('https://support.rpowerpos.com', '_self', 'location=no');
-
+       }
    </script>
 </body>
 
