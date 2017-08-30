@@ -7,9 +7,20 @@
 
 <body>
 
+   <span id="myLink">Load Pap</span>
 
    <script>
-      var onInApp = window.open('https://support.rpowerpos.com/', '_blank', 'location=no,hidden=yes,closebuttoncaption=Done,toolbar=no');
+       document.addEventListener("deviceready", onDeviceReady, false);
+
+       function onDeviceReady()
+       {
+           var myLink = document.getElementById('myLink');
+
+           myLink.addEventListener("click", function()
+           {
+               cordova.InAppBrowser.open('https://support.rpowerpos.com', '_self', 'location=no');
+           })
+       }
    </script>
 </body>
 
