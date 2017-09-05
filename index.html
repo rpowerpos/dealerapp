@@ -8,39 +8,21 @@
 <body style="background: #000000">
 <script src="cordova.js"></script>
    <script>
+      //window.location.href = 'https://support.rpowerpos.com';
 
-   var inAppBrowserRef;
-   
-   inAppBrowserRef = window.open("https://support.rpowerpos.com/", "_blank", "location=yes", "hidden=yes");
-   inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
-   inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
-   inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
+         document.addEventListener("deviceready", function()
+         {
+            var iabRef = window.open('https://support.rpowerpos.com', '_blank', 'location=yes', 'hidden=yes');
+            iabRef.addEventListener('loadstop', loadStop);
+         },true);
 
-   function loadStartCallBack()
-   {
+         function loadStop(a)
+         {
+            iabRef.show();
+         }
 
-      console.log("loading please wait ...");
+      //var ref = cordova.InAppBrowser.open('https://support.rpowerpos.com', '_blank', 'location=yes');
 
-   }
-
-   function loadStopCallBack()
-   {
-
-      if (inAppBrowserRef != undefined)
-      {
-        inAppBrowserRef.insertCSS({ code: "body{font-size: 25px;" });
-        console.log("loadStop Hit");
-        inAppBrowserRef.show();
-      }
-   }
-
-   function loadErrorCallBack(params)
-   {
-      var scriptErrorMesssage =  "alert('Sorry we cannot open that page. Message from the server is : " + params.message + "');";
-      inAppBrowserRef.executeScript({ code: scriptErrorMesssage }, executeScriptCallBack);
-      inAppBrowserRef.close();
-      inAppBrowserRef = undefined;
-   }
 
    </script>
 </body>
