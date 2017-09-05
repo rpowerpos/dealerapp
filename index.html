@@ -25,12 +25,12 @@
 
          function loadStart()
          {
-            function() { $body.addClass("loading"); }
+            $body.addClass("loading");
          }
 
          function loadStop(a)
          {
-            function() { $body.removeClass("loading"); }
+            $body.removeClass("loading");
             iabRef.show();
          }
 
