@@ -7,37 +7,35 @@
 
 <body style="background: #000000">
 <link href="k3.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="cordova.js"></script>
    <script>
-   $body = $("body");
+      $body = $("body");
+      var iabRef = null;
 
+      document.addEventListener("deviceready", function()
+      {
+         iabRef = cordova.InAppBrowser.open('https://support.rpowerpos.com', '_blank', 'hidden=yes,location=no');
+         iabRef.addEventListener('loadstart', loadStart);
+         iabRef.addEventListener('loadstop', loadStop);
+         iabRef.addEventListener('exit', exit);
+      },true);
 
+      function loadStart()
+      {
+         $body.addClass("loading");
+      }
 
-         var iabRef = null;
+      function loadStop(a)
+      {
+         $body.removeClass("loading");
+         iabRef.show();
+      }
 
-         document.addEventListener("deviceready", function()
-         {
-            iabRef = cordova.InAppBrowser.open('https://support.rpowerpos.com', '_blank', 'hidden=yes,location=no');
-            iabRef.addEventListener('loadstart', loadStart);
-            iabRef.addEventListener('loadstop', loadStop);
-            iabRef.addEventListener('exit', exit);
-         },true);
-
-         function loadStart()
-         {
-            $body.addClass("loading");
-         }
-
-         function loadStop(a)
-         {
-            $body.removeClass("loading");
-            iabRef.show();
-         }
-
-         function exit(a)
-         {
-            navigator.app.exitApp();
-         }
+      function exit(a)
+      {
+         navigator.app.exitApp();
+      }
 
    </script>
 </body>
