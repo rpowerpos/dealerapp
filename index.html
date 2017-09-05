@@ -12,8 +12,8 @@
 
          document.addEventListener("deviceready", function()
          {
+            var iabRef = window.open('https://support.rpowerpos.com', '_blank', 'location=yes');
             iabRef.addEventListener('loadstop', logme);
-            iabRef = window.open('https://support.rpowerpos.com', '_blank', 'location=yes');
             alert("123");
          },true);
 
