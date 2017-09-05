@@ -7,42 +7,41 @@
 
 <body style="background: #000000">
 <script src="cordova.js"></script>
-<script>
+   <script>
 
-var inAppBrowserRef;
+   var inAppBrowserRef;
 
-var options = "location=yes,hidden=yes";
-inAppBrowserRef = cordova.InAppBrowser.open("https://support.rpowerpos.com/", "_blank", options);
-inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
-inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
-inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
+   var options = "location=yes,hidden=yes";
+   inAppBrowserRef = InAppBrowser.open("https://support.rpowerpos.com/", "_blank", options);
+   inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
+   inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
+   inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
 
-function loadStartCallBack()
-{
-
-   console.log("loading please wait ...");
-
-}
-
-function loadStopCallBack()
-{
-
-   if (inAppBrowserRef != undefined)
+   function loadStartCallBack()
    {
-     inAppBrowserRef.insertCSS({ code: "body{font-size: 25px;" });
-     console.log("loadStop Hit");
-     inAppBrowserRef.show();
+
+      console.log("loading please wait ...");
+
    }
-}
 
-function loadErrorCallBack(params)
-{
-   var scriptErrorMesssage =  "alert('Sorry we cannot open that page. Message from the server is : " + params.message + "');";
-   inAppBrowserRef.executeScript({ code: scriptErrorMesssage }, executeScriptCallBack);
-   inAppBrowserRef.close();
-   inAppBrowserRef = undefined;
-}
+   function loadStopCallBack()
+   {
 
+      if (inAppBrowserRef != undefined)
+      {
+        inAppBrowserRef.insertCSS({ code: "body{font-size: 25px;" });
+        console.log("loadStop Hit");
+        inAppBrowserRef.show();
+      }
+   }
+
+   function loadErrorCallBack(params)
+   {
+      var scriptErrorMesssage =  "alert('Sorry we cannot open that page. Message from the server is : " + params.message + "');";
+      inAppBrowserRef.executeScript({ code: scriptErrorMesssage }, executeScriptCallBack);
+      inAppBrowserRef.close();
+      inAppBrowserRef = undefined;
+   }
 
    </script>
 </body>
