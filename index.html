@@ -12,14 +12,15 @@
 
          document.addEventListener("deviceready", function()
          {
-            var iabRef = window.open('https://support.rpowerpos.com', '_blank', 'location=yes');
-            iabRef.addEventListener('loadstop', logme);
+            var iabRef = window.open('https://support.rpowerpos.com', '_blank', 'location=yes', 'hidden=yes', 'toolbar=no');
+            iabRef.addEventListener('loadstop', loadStop);
             alert("123");
          },true);
 
-         function logme(a)
+         function loadStop(a)
          {
-            console.log("fjskdjfkdsjfksd");
+            iabRef.show();
+            console.log("Support page loaded, stop event fired");
          }
 
       //var ref = cordova.InAppBrowser.open('https://support.rpowerpos.com', '_blank', 'location=yes');
