@@ -8,13 +8,18 @@
 <body style="background: #000000">
 
    <script>
-       window.location.href = 'https://support.rpowerpos.com';
-       document.addEventListener("deviceready", onDeviceReady, false);
+      document.addEventListener("deviceready", onDeviceReady, false);
+      //window.location.href = 'https://support.rpowerpos.com';
 
-       function onDeviceReady()
-       {
-           window.location.href = 'https://support.rpowerpos.com';
-       }
+      function onDeviceReady()
+      {
+         iabRef = window.open('https://support.rpowerpos.com', '_blank', 'location=yes');
+         iabRef.addEventListener('loadstop', logme);
+      }
+
+      //var ref = cordova.InAppBrowser.open('https://support.rpowerpos.com', '_blank', 'location=yes');
+
+
    </script>
 </body>
 
