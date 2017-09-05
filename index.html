@@ -6,12 +6,16 @@
 </head>
 
 <body style="background: #000000">
-
+<script src="cordova.js"></script>
    <script>
       //window.location.href = 'https://support.rpowerpos.com';
 
-         iabRef = window.open('https://support.rpowerpos.com', '_blank', 'location=yes');
-         iabRef.addEventListener('loadstop', logme);
+         document.addEventListener("deviceready", function()
+         {
+            iabRef.addEventListener('loadstop', logme);
+            iabRef = window.open('https://support.rpowerpos.com', '_blank', 'location=yes');
+            alert("123");
+         },true);
 
          function logme(a)
          {
