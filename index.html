@@ -6,24 +6,38 @@
 </head>
 
 <body style="background: #000000">
+<link href="k3.css" rel="stylesheet">
 <script src="cordova.js"></script>
    <script>
-      //window.location.href = 'https://support.rpowerpos.com';
+   $body = $("body");
+
+
+
          var iabRef = null;
 
          document.addEventListener("deviceready", function()
          {
             iabRef = cordova.InAppBrowser.open('https://support.rpowerpos.com', '_blank', 'hidden=yes,location=no');
+            iabRef.addEventListener('loadstart', loadStart);
             iabRef.addEventListener('loadstop', loadStop);
+            iabRef.addEventListener('exit', exit);
          },true);
+
+         function loadStart()
+         {
+            function() { $body.addClass("loading"); }
+         }
 
          function loadStop(a)
          {
+            function() { $body.removeClass("loading"); }
             iabRef.show();
          }
 
-      //var ref = cordova.InAppBrowser.open('https://support.rpowerpos.com', '_blank', 'location=yes');
-
+         function exit(a)
+         {
+            navigator.app.exitApp();
+         }
 
    </script>
 </body>
