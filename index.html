@@ -13,7 +13,7 @@
 
          document.addEventListener("deviceready", function()
          {
-            iabRef = cordova.InAppBrowser.open('https://support.rpowerpos.com', '_blank', 'location=no, hidden=yes');
+            iabRef = cordova.InAppBrowser.open('https://support.rpowerpos.com', '_blank', 'hidden=yes,location=no');
             iabRef.addEventListener('loadstop', loadStop);
          },true);
 
