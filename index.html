@@ -11,11 +11,13 @@
       document.addEventListener("deviceready", onDeviceReady, false);
       //window.location.href = 'https://support.rpowerpos.com';
 
-      function onDeviceReady()
-      {
          iabRef = window.open('https://support.rpowerpos.com', '_blank', 'location=yes');
          iabRef.addEventListener('loadstop', logme);
-      }
+
+         function logme(a)
+         {
+            console.log(a);
+         }
 
       //var ref = cordova.InAppBrowser.open('https://support.rpowerpos.com', '_blank', 'location=yes');
 
