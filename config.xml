@@ -2,9 +2,9 @@
   <widget xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id          = "com.rpower.dealer"
-    versionCode = "10"
-    version     = "1.0.0" >
+    id          = "com.rpower.mobile"
+    versionCode = "40"
+    version     = "4.0.0" >
 
     <name>RPOWER Dealer App</name>
 
