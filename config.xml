@@ -3,8 +3,8 @@
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id          = "com.rpower.mobile"
-    versionCode = "41"
-    version     = "4.1.0" >
+    versionCode = "20"
+    version     = "2.0.0" >
 
     <name>RPOWER Dealer App</name>
 
@@ -17,7 +17,6 @@
     </author>
 
     <platform name="android">
-      <preference name="android-minSdkVersion" value="25" />
     	<icon density="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
     	<icon density="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
     	<icon density="hdpi" src="res/icons/android/drawable-hdpi-icon.png" />
